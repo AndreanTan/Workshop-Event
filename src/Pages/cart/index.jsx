@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { rupiahCurrency } from "../../Utils/utils";
 
 export function cartComponent() {
   const dummyData = {
@@ -50,26 +51,28 @@ export function cartComponent() {
             </tr>
           </thead>
           <tbody>
-              {dummyData.listItems.map((item, key) => {
-                return (
-                  <tr key={key}>
-                    <td className="text-center pt-5 font-thin text-xl">
-                      {item.itemName}
-                    </td>
-                    <td className="text-center pt-5 font-thin text-xl">
-                      {item.price}
-                    </td>
-                    <td className="text-center pt-5 font-thin text-xl">{item.quantity}</td>
-                  </tr>
-                );
-              })}
+            {dummyData.listItems.map((item, key) => {
+              return (
+                <tr key={key}>
+                  <td className="text-center pt-5 font-thin text-xl">
+                    {item.itemName}
+                  </td>
+                  <td className="text-center pt-5 font-thin text-xl">
+                    {item.price}
+                  </td>
+                  <td className="text-center pt-5 font-thin text-xl">
+                    {item.quantity}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
       <div className="bg-green-800 w-full h-28 mt-10 flex justify-end items-center pr-20">
         <label className="text-2xl text-white">Total</label>
         <label className="ml-16 text-xl bg-white pt-3 pb-3 pl-3 pr-3">
-          {dummyData.totalPayment}
+          {rupiahCurrency(dummyData.totalPayment)}
         </label>
       </div>
       <div className="w-full h-28 flex justify-end items-center pr-20">
