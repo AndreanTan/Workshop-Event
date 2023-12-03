@@ -6,22 +6,22 @@ export function cartComponent() {
     listItems: [
       {
         itemName: "Tiket Coldplay",
-        price: "1.000.000",
+        price: 1000000,
         quantity: 50,
       },
       {
         itemName: "Tiket Pelatihan pembuatan anak monyet",
-        price: "1.000.000",
+        price: 1000000,
         quantity: 50,
       },
       {
         itemName: "Tiket Pelatihan pembuatan anak anjing",
-        price: "1.000.000",
+        price: 1000000,
         quantity: 50,
       },
       {
         itemName: "Tiket Pelatihan pembuatan anak bangsat",
-        price: "1.000.000",
+        price: 1000000,
         quantity: 50,
       },
     ],
@@ -58,7 +58,7 @@ export function cartComponent() {
                     {item.itemName}
                   </td>
                   <td className="text-center pt-5 font-thin text-xl">
-                    {item.price}
+                    {rupiahCurrency(item.price)}
                   </td>
                   <td className="text-center pt-5 font-thin text-xl">
                     {item.quantity}
