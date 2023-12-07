@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ user, workshop }) {
       this.belongsTo(user, { foreignKey: "user_id" });
-      this.belongsTo(workshop, { foreignKey: "user_id" });
+      this.belongsTo(workshop, { foreignKey: "workshop_id" });
     }
   }
   cart.init(
