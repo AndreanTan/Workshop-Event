@@ -21,6 +21,10 @@ app.get("/", (req, res) => {
 //     console.error("Error syncing model with database:", error);
 //   });
 
+const { usersRouter } = require("./routers");
+
+app.use("/users".usersRouter);
+
 app.listen(port, (err) => {
   if (err) {
     console.log(`ERROR:${err}`);
