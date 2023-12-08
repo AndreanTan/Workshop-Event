@@ -1,3 +1,4 @@
+const { QueryTypes } = require("sequelize");
 const db = require("../models");
 
 async function getListItemByIdUser(userId) {
@@ -19,7 +20,7 @@ async function getListItemByIdUser(userId) {
         workshop_languanges lang ON workshop.languange_id = lang.id
     WHERE
         carts.user_id = ${userId}
-    `);
+    `, {type: QueryTypes.SELECT});
   return items;
 }
 
