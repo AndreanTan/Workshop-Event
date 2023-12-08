@@ -2,7 +2,8 @@ const { QueryTypes } = require("sequelize");
 const db = require("../models");
 
 async function getListItemByIdUser(userId) {
-  const items = await db.sequelize.query(`
+  const items = await db.sequelize.query(
+    `
     SELECT 
         workshop.workshop_name,
         workshop.address,
@@ -11,7 +12,8 @@ async function getListItemByIdUser(userId) {
         workshop.description,
         workshop.ratings,
         carts.quantity,
-        lang.languange
+        lang.languange,
+        workshop.price * carts.quantity as subTotal
     FROM
         carts
             LEFT JOIN
@@ -20,7 +22,9 @@ async function getListItemByIdUser(userId) {
         workshop_languanges lang ON workshop.languange_id = lang.id
     WHERE
         carts.user_id = ${userId}
-    `, {type: QueryTypes.SELECT});
+    `,
+    { type: QueryTypes.SELECT }
+  );
   return items;
 }
 
