@@ -7,11 +7,11 @@ const port = 4000;
 app.use(express.json());
 app.use(cors());
 
-const { userRouter } = require("./routers");
+const { userRouter, cartRouter } = require("./routers");
 // app.get("/", (req, res) => {
 //   res.status(201).send("<h1>Welcome to my api!</h1>");
 // });
-app.use("/users", userRouter);
+app.use("/api", [userRouter, cartRouter]);
 
 // app.use((err, req, res, next) => {
 //   const statusCode = err.status || 500;
