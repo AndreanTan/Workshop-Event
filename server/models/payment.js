@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const enumValues = ["SUCCESS PAYMENT", "WAITING PAYMENT", "FAILED PAYMENT"];
 module.exports = (sequelize, DataTypes) => {
   class payment extends Model {
     /**
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       },
+      status_payment: { type: DataTypes.ENUM, values: enumValues },
     },
     {
       sequelize,
