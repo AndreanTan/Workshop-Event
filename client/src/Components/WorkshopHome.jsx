@@ -23,9 +23,9 @@ function WorkshopHome() {
             <Link to={"/workshop"}>
                 <button type='button' className='text-white bg-gradient-to-r bg-[#697B51] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-500  shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 '>
                     Learn More
-                    </button>
-                </Link>
-            </div>
+                </button>
+            </Link>
+        </div>
     </section>
   )
 }
