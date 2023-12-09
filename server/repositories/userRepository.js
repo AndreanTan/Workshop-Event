@@ -33,10 +33,10 @@ module.exports = {
   },
   userLogin: async (body) => {
     try {
-      const { username, password, email } = body;
+      const { password, email } = body;
 
       const checkUser = await db.user.findOne({ where: { email } });
-      console.log(checkUser.dataValues);
+      console.log(checkUser);
 
       if (!checkUser) {
         return {
