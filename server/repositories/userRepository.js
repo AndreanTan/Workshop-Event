@@ -8,7 +8,7 @@ module.exports = {
 
       const checkEmail = await db.user.findOne({ where: { email } });
 
-      if (checkEmail) throw { message: "email already used" };
+      if (checkEmail) throw { isError: true, message: "email already used" };
       const hashPassword = await hash(password);
 
       const registerUser = await db.user.create({
@@ -20,12 +20,12 @@ module.exports = {
       if (!registerUser)
         return {
           isError: true,
-          message: "Regist user is failed!",
+          message: "Register user is Failed!",
         };
 
       return {
-        isError: true,
-        message: "Regist user is Success!",
+        isError: false,
+        message: "Register user is Success!",
       };
     } catch (error) {
       return error;
