@@ -8,7 +8,7 @@ module.exports = {
       const getItem = await cartRepository.getListItemByIdUser(userId);
       res.status(200).send({
         isError: false,
-        message: "get Data user success!",
+        message: "get data success !",
         data: getItem,
       });
     } catch (error) {
