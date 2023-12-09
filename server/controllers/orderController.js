@@ -9,20 +9,48 @@ function getTotal(listItem) {
   return result;
 }
 
+function setOrderDetail(listItem, orderId, quantityOrdered) {
+  try {
+    listItem.map((item) => {
+      db.order_detail
+        .build({
+          quantity: quantityOrdered,
+          sub_total: item.subTotal,
+          workshop_id: item.id,
+          order_id: orderId,
+        })
+        .save();
+    });
+  } catch (error) {
+    res.status(500).send({
+      isError: true,
+      message: error,
+    });
+  }
+}
+
 module.exports = {
   createOrder: async (req, res, next) => {
     try {
+      const { userId, quantityOrdered } = req.body;
       const listItem = await cartRepository.getListItemByIdUser(
         req.body.userId
       );
       const total = getTotal(listItem);
       const newOrder = db.order
-        .build({ total_price: total, status: "waiting", user_id: req.body.userId })
+        .build({ total_price: total, status: "waiting", user_id: userId })
         .save();
+      const orderData = await newOrder;
+      const orderId = JSON.stringify(JSON.parse(orderData.id));
+      const orderDetail = setOrderDetail(
+        listItem,
+        orderId,
+        quantityOrdered
+      );
       res.status(201).send({
         isError: false,
         message: "order succes",
-        data: newOrder,
+        data: orderDetail,
       });
     } catch (error) {
       next(error);
