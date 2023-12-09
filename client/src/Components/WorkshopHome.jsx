@@ -1,5 +1,6 @@
 import React from 'react'
 import Img1  from "../assets/img/W1.jpeg"
+import { Link } from 'react-router-dom'
 
 function WorkshopHome() {
   return (
@@ -17,12 +18,14 @@ function WorkshopHome() {
                     </div>
                 </div>
             </div> 
-            <div className=''>
+        </div>
+        <div className='mt-16 flex justify-center'>
+            <Link to={"/workshop"}>
                 <button type='button' className='text-white bg-gradient-to-r bg-[#697B51] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-500  shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 '>
                     Learn More
-                </button>
+                    </button>
+                </Link>
             </div>
-        </div>
     </section>
   )
 }
