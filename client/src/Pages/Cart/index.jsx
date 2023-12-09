@@ -6,27 +6,27 @@ export function CartComponent() {
   const dummyData = {
     listItems: [
       {
-        itemName: "Tiket Coldplay",
-        price: 1000000,
+        itemName: "Workshop pembuatan Keramik",
+        price: 350000,
         quantity: 50,
       },
       {
-        itemName: "Tiket Pelatihan pembuatan anak monyet",
-        price: 1000000,
+        itemName: "Masak Gulai Ayam",
+        price: 250000,
         quantity: 50,
       },
       {
-        itemName: "Tiket Pelatihan pembuatan anak anjing",
-        price: 1000000,
+        itemName: "Budidaya ikan Bus",
+        price: 273500,
         quantity: 50,
       },
       {
-        itemName: "Tiket Pelatihan pembuatan anak bangsat",
-        price: 1000000,
+        itemName: "Pembudidayaan ikan lele jumbo",
+        price: 230000,
         quantity: 50,
       },
     ],
-    totalPayment: 1000000,
+    totalPayment: 1103500,
   };
   return (
     <div className="bg-white flex justify-between h-fit items-center flex-col ml-48 mr-48 mt-48 mb-48 shadow-2xl pt-10">
