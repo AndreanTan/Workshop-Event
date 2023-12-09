@@ -1,5 +1,6 @@
 import React from 'react'
 import WorkshopCard from '../../Components/WorkshopCard'
+import Footer from '../../Components/Footer'
 
 export default function Workshop() {
   return (
@@ -46,6 +47,7 @@ export default function Workshop() {
                 </div>
             </div>
         </div>
+        <Footer />
     </section>
   )
 }
