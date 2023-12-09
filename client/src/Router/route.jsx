@@ -16,7 +16,6 @@ const route = [
   <Route key={"/cart"} path="/cart" element={<CartComponent />} />,
   <Route key={"/card"} path="/card" element={<WorkshopCard />} />,
   <Route key={"/descworkshop"} path="/descworkshop" element={<DescriptionWorkshop />} />,
-  <Route key={"/login"} path="/login" element={<Auth isLogin={false} />} />,
   <Route key={"/login"} path="/login" element={<AuthLogin />} />,
   <Route key={"/regist"} path="/regist" element={<AuthRegist />} />,
 ];
