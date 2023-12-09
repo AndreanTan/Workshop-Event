@@ -7,19 +7,22 @@ const port = 4000;
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.status(201).send("<h1>Welcome to my api!</h1>");
-});
+const { userRouter, cartRouter } = require("./routers");
+// app.get("/", (req, res) => {
+//   res.status(201).send("<h1>Welcome to my api!</h1>");
+// });
+app.use("/api", [userRouter, cartRouter]);
 
-// Menjalankan sync() secara manual
-// db.order
-//   .sync()
-//   .then(() => {
-//     console.log("Model synchronized with database");
-//   })
-//   .catch((error) => {
-//     console.error("Error syncing model with database:", error);
+// app.use((err, req, res, next) => {
+//   const statusCode = err.status || 500;
+//   const statusMessage = err.message || "Error";
+
+//   return res.status(statusCode).send({
+//     isError: true,
+//     message: statusMessage,
+//     data: null,
 //   });
+// });
 
 app.listen(port, (err) => {
   if (err) {
