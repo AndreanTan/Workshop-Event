@@ -16,7 +16,7 @@ function WorkshopHome() {
                         <p className="mt-[6px] mx-[36px] text-[13px] font-normal text-gray-700 text-center">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                     </div>
                 </div>
-            </div>
+            </div> 
             <div className=''>
                 <button type='button' className='text-white bg-gradient-to-r bg-[#697B51] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-500  shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 '>
                     Learn More

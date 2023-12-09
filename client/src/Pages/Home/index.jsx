@@ -13,7 +13,7 @@ export default function HomeComponent() {
         <FirstHeroHome />
         <SecondHeroHome />
         <WorkshopHome />
-        <SearchTravelHome />
+        {/* <SearchTravelHome /> */}
         <WhyUsHome />
         <OurCommitHome />
         <FooterHome />
