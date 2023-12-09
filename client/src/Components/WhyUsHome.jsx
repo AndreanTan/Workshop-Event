@@ -8,6 +8,7 @@ import Img3  from "../assets/img/W3.jpeg"
 function WhyUsHome() {
   return (
     <section className="w-full h-[709px] max-w-screen-xl mx-auto p-4 md:py-8">
+        <hr class=" border-gray-200 sm:mx-auto lg:my-8" />
         <div className='flex flex-col justify-center items-center'>
             <div className='mt-[48px]'>
                 <h2 className='text-[57px] text-black font-[400px]'>Why Us</h2>
