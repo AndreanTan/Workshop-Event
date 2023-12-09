@@ -2,14 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('workshop-images', {
+    await queryInterface.createTable('payments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      path - name: {
+      nama: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -23,6 +23,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('workshop-images');
+    await queryInterface.dropTable('payments');
   }
 };
