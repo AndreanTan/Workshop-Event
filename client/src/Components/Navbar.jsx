@@ -1,5 +1,5 @@
 import { Input } from "@nextui-org/react";
-
+import { FiSearch } from "react-icons/fi";
 // import React from 'react'
 
 function Navbar() {
@@ -8,11 +8,10 @@ function Navbar() {
       <div className="max-w-[1300px] mx-auto">
         <div className="font-Grotesk text-4xl font-bold">Jelajah</div>
         <Input
-          label="Search"
           isClearable
           radius="lg"
           placeholder="Type to search..."
-          // startContent=
+          startContent={<FiSearch />}
         />
       </div>
     </div>
