@@ -3,6 +3,7 @@ import React from 'react'
 function OurCommitHome() {
   return (
     <section className="w-full h-[684px] max-w-screen-xl mx-auto p-4 md:py-8">
+        <hr class=" border-gray-200 sm:mx-auto lg:my-8" />
         <div className='flex flex-col justify-center items-center'>
             <div className='text-[#383B28] text-[64px] font-[400] mt-[60px]'>
                 <h1>Our Commitment</h1>

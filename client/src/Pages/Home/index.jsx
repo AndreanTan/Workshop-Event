@@ -1,5 +1,5 @@
 import React from 'react'
-import FooterHome from '../../Components/FooterHome'
+import Footer from '../../Components/Footer'
 import OurCommitHome from '../../Components/OurCommitHome'
 import WhyUsHome from '../../Components/WhyUsHome'
 import FirstHeroHome from '../../Components/FirstHeroHome'
@@ -13,10 +13,10 @@ export default function HomeComponent() {
         <FirstHeroHome />
         <SecondHeroHome />
         <WorkshopHome />
-        <SearchTravelHome />
+        {/* <SearchTravelHome /> */}
         <WhyUsHome />
         <OurCommitHome />
-        <FooterHome />
+        <Footer />
     </section>
   )
 }
