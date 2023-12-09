@@ -1,6 +1,6 @@
 //import React from 'react'
 
-function FooterHome() {
+function Footer() {
     return (
         <section className="mt-36 max-w-screen-xl mx-auto p-4 md:py-8">
             <hr class=" border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -14,15 +14,15 @@ function FooterHome() {
                         <a href="#" className="hover:underline me-4 md:me-6">General</a>
                     </li>
                     <li>
-                        <a href="#" className="hover:underline me-4 md:me-6">Workshop</a>
+                        <a href="/workshop" className="hover:underline me-4 md:me-6">Workshop</a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="#" className="hover:underline">Travel</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </section>
     )
 }
 
-export default FooterHome
+export default Footer
