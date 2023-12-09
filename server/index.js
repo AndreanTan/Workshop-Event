@@ -7,22 +7,22 @@ const port = 4000;
 app.use(express.json());
 app.use(cors());
 
-const { userRouter, cartRouter } = require("./routers");
+const { userRouter, cartRouter, orderRouter } = require("./routers");
 // app.get("/", (req, res) => {
 //   res.status(201).send("<h1>Welcome to my api!</h1>");
 // });
-app.use("/api", [userRouter, cartRouter]);
+app.use("/api", [userRouter, cartRouter, orderRouter]);
 
-// app.use((err, req, res, next) => {
-//   const statusCode = err.status || 500;
-//   const statusMessage = err.message || "Error";
+app.use((err, req, res, next) => {
+  const statusCode = err.status || 500;
+  const statusMessage = err.message || "Error";
 
-//   return res.status(statusCode).send({
-//     isError: true,
-//     message: statusMessage,
-//     data: null,
-//   });
-// });
+  return res.status(statusCode).send({
+    isError: true,
+    message: statusMessage,
+    data: null,
+  });
+});
 
 app.listen(port, (err) => {
   if (err) {
