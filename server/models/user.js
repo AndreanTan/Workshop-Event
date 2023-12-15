@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       phone: DataTypes.STRING,
+      verification_code: DataTypes.STRING,
+      status: {
+        type: DataTypes.ENUM,
+        values: ["Verified", "Unverified"],
+        defaultValue: "Unverified",
+      },
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
