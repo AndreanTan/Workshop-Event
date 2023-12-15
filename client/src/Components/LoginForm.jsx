@@ -7,8 +7,11 @@ import * as yup from "yup";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { setUsername } from "../redux/feature/users";
+import { useDispatch } from "react-redux";
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -47,6 +50,8 @@ const LoginForm = () => {
         });
 
       if (!checkUser.data.isError) {
+        dispatch(setUsername(checkUser.data.data.username));
+        localStorage.setItem("idAccess", checkUser.data.data.id);
         Swal.fire({
           position: "center",
           icon: "success",

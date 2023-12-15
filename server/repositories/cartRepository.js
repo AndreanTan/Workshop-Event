@@ -4,7 +4,8 @@ const db = require("../models");
 async function getListItemByIdUser(userId) {
   const items = await db.sequelize.query(
     `
-    SELECT 
+    SELECT
+        workshop.id,
         workshop.workshop_name,
         workshop.address,
         workshop.price,

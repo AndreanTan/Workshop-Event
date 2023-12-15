@@ -1,19 +1,22 @@
 "use strict";
 const { Model } = require("sequelize");
+const enumValues = ["SUCCESS PAYMENT", "WAITING PAYMENT", "FAILED PAYMENT"];
 module.exports = (sequelize, DataTypes) => {
-  class mst_payment_method extends Model {
+  class payment extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ payment }) {
-      this.hasMany(payment, { foreignKey: "mst_payment_method_id" });
+    static associate({ order, mst_payment_method }) {
+      this.belongsTo(order, { foreignKey: "order_id" });
+      this.belongsTo(mst_payment_method, {
+        foreignKey: "mst_payment_method_id",
+      });
     }
   }
-  mst_payment_method.init(
+  payment.init(
     {
-      method_name: DataTypes.STRING,
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
@@ -22,11 +25,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       },
+      status_payment: { type: DataTypes.ENUM, values: enumValues },
     },
     {
       sequelize,
-      modelName: "mst_payment_method",
+      modelName: "payment",
     }
   );
-  return mst_payment_method;
+  return payment;
 };
