@@ -8,7 +8,7 @@ setTotal = (items) => {
     result += item.subTotal;
   });
   return result;
-}
+};
 
 module.exports = {
   getListItem: async (req, res, next) => {
@@ -19,7 +19,7 @@ module.exports = {
       res.status(200).send({
         isError: false,
         message: "get data success !",
-        data: {items: getItem, total},
+        data: { items: getItem, total },
       });
     } catch (error) {
       next(error);
@@ -47,7 +47,7 @@ module.exports = {
           res,
           `Cart with id ${req.body.cartId} not found`,
           null,
-          400,
+          404,
           true
         );
       } else {
@@ -64,6 +64,20 @@ module.exports = {
           false
         );
       }
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  updateQtyItem: async (req, res, next) => {
+    try {
+      const { quantity, cartId } = req.body;
+      const result = await cartRepository.updateQuantityCart(quantity, cartId);
+      res.status(201).send({
+        isError: false,
+        message: "update data success !",
+        data: null,
+      });
     } catch (error) {
       next(error);
     }
