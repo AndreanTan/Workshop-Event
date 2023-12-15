@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   username: "",
@@ -18,25 +19,37 @@ export const userSlice = createSlice({
   },
 });
 
-// export const OnCheckIsLogin = () => async (dispatch) => {
-// 	try {
-// 		// const accessToken = localStorage.getItem("accessToken");
+export const OnCheckIsLogin = () => async (dispatch) => {
+  try {
+    const accessToken = localStorage.getItem("tokenAccess");
 
-// 		// const CheckToken = await axiosInstance(accessToken).get(
-// 		// 	"/users/verifyAccess"
-// 		// );
+    const CheckToken = await axios.get(
+      "http://localhost:4000/api/verifyAccess",
+      {
+        headers: {
+          Authorization: accessToken,
+        },
+      }
+    );
 
-// 		// dispatch(setIsLogin(true));
-// 		// dispatch(login(CheckToken.data.data));
+    dispatch(setUsername(CheckToken.data.data.username));
+    dispatch(setEmail(CheckToken.data.data.email));
+    console.log(CheckToken);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// 		// if (CheckToken.data.data.role === "admin") {
-// 		// 	dispatch(setWarehouse(CheckToken.data.data.warehouse_id));
-// 		// 	dispatch(setWarehouseId(CheckToken.data.data.warehouse_id));
-// 		// }
-// 	} catch (error) {
-//         console.log(error);
-//     }
-// }
+export const onLogout = () => async (dispatch) => {
+  try {
+    dispatch(setEmail(""));
+    dispatch(setUsername(""));
+    localStorage.removeItem("idAccess");
+    localStorage.removeItem("tokenAccess");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const { setUsername, setEmail } = userSlice.actions;
 export default userSlice.reducer;
