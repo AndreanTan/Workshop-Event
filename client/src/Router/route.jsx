@@ -1,7 +1,7 @@
 // import App from "../App";
 import { Route } from "react-router-dom";
 
-import { CartComponent } from "../Pages/Cart";
+import CartComponent  from "../Pages/Cart";
 import HomeComponent from "../Pages/Home";
 import Workshop from "../Pages/Workshop";
 import WorkshopCard from "../Components/WorkshopCard";
