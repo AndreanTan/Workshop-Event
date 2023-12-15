@@ -8,6 +8,8 @@ import WorkshopCard from "../Components/WorkshopCard";
 import DescriptionWorkshop from "../Pages/DescriptionWorkshop";
 import AuthLogin from "../Pages/Auth/AuthLogin";
 import AuthRegist from "../Pages/Auth/AuthRegist";
+import Checkout from "../Pages/Checkout";
+
 
 
 const route = [
@@ -18,6 +20,7 @@ const route = [
   <Route key={"/descworkshop"} path="/descworkshop" element={<DescriptionWorkshop />} />,
   <Route key={"/login"} path="/login" element={<AuthLogin />} />,
   <Route key={"/regist"} path="/regist" element={<AuthRegist />} />,
+  <Route key={"/checkout"} path="/checkout" element={<Checkout />} />,
 ];
 
 export default route;
