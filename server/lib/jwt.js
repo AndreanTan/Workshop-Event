@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 
-module.export = {
+module.exports = {
   createJWT: (payload, expiry) => {
     try {
       return jwt.sign(payload, "abc123", {
-        expiryIn: expiry,
+        expiresIn: expiry,
       });
     } catch (error) {
       return error;

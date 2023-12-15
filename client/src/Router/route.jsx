@@ -11,16 +11,26 @@ import AuthRegist from "../Pages/Auth/AuthRegist";
 import Checkout from "../Pages/Checkout";
 
 
+import AuthVerif from "../Pages/Auth/AuthVerif";
 
 const route = [
   <Route key={"/"} path="/" element={<HomeComponent />} />,
   <Route key={"/workshop"} path="/workshop" element={<Workshop />} />,
   <Route key={"/cart"} path="/cart" element={<CartComponent />} />,
   <Route key={"/card"} path="/card" element={<WorkshopCard />} />,
-  <Route key={"/descworkshop"} path="/descworkshop" element={<DescriptionWorkshop />} />,
+  <Route
+    key={"/descworkshop"}
+    path="/descworkshop"
+    element={<DescriptionWorkshop />}
+  />,
   <Route key={"/login"} path="/login" element={<AuthLogin />} />,
   <Route key={"/regist"} path="/regist" element={<AuthRegist />} />,
   <Route key={"/checkout"} path="/checkout" element={<Checkout />} />,
+  <Route
+    key={"/verify/:token"}
+    path="/verify/:token"
+    element={<AuthVerif />}
+  />,
 ];
 
 export default route;
