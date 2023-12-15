@@ -1,5 +1,5 @@
 // import { Button, Input } from "@nextui-org/react";
-import { FiSearch } from "react-icons/fi";
+// import { FiSearch } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 import {
   Navbar,
@@ -8,7 +8,7 @@ import {
   NavbarItem,
   Button,
   NavbarMenuToggle,
-  Input,
+  // Input,
   // Badge,
   NavbarMenu,
   NavbarMenuItem,
@@ -29,7 +29,7 @@ function NavigationBar() {
       className="md:py-2 md:px-2 shadow-sm bg-background border-b-2 dark:border-neutral-800"
       isBlurred={false}
     >
-      <NavbarContent className="flex">
+      <NavbarContent className="flex justify-between">
         <NavbarBrand>
           <div className="font-Grotesk text-4xl text-[#902B1E] font-bold">
             Jelajah
@@ -37,7 +37,7 @@ function NavigationBar() {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="flex gap-4 w-full" justify="center">
-        <form className="w-full flex justify-center">
+        {/* <form className="w-full flex justify-center">
           <Input
             type="text"
             variant="bordered"
@@ -49,7 +49,7 @@ function NavigationBar() {
             startContent={<FiSearch />}
             className="w-full md:w-3/4"
           />
-        </form>
+        </form> */}
       </NavbarContent>
       <NavbarContent justify="end" className="hidden md:flex gap-2">
         <NavbarItem>
