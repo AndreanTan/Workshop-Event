@@ -1,33 +1,34 @@
 import { rupiahCurrency } from "../../Utils/utils";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { getListItem } from "../../services/cartService";
 
 // import React, { Component } from "react";
 
 export function CartComponent() {
-  const dummyData = {
-    listItems: [
-      {
-        itemName: "Workshop pembuatan Keramik",
-        price: 350000,
-        quantity: 50,
-      },
-      {
-        itemName: "Masak Gulai Ayam",
-        price: 250000,
-        quantity: 50,
-      },
-      {
-        itemName: "Budidaya ikan Bus",
-        price: 273500,
-        quantity: 50,
-      },
-      {
-        itemName: "Pembudidayaan ikan lele jumbo",
-        price: 230000,
-        quantity: 50,
-      },
-    ],
-    totalPayment: 1103500,
-  };
+  const carts = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const [listItemCart, setListItemCart] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    dispatch(
+      getListItem({
+        userId: 1,
+      })
+    );
+  }, []);
+
+  useEffect(() => {
+    const { result } = carts;
+    if (result) {
+      setListItemCart(result.data.items);
+      setTotal(result.data.total);
+    }
+  }, [carts]);
+
+
   return (
     <div className="bg-white flex justify-between h-fit items-center flex-col ml-48 mr-48 mt-48 mb-48 shadow-2xl pt-10">
       <div className="self-start pl-10">
@@ -52,11 +53,11 @@ export function CartComponent() {
             </tr>
           </thead>
           <tbody>
-            {dummyData.listItems.map((item, key) => {
+            {listItemCart.map((item, key) => {
               return (
                 <tr key={key}>
                   <td className="text-center pt-5 font-thin text-xl">
-                    {item.itemName}
+                    {item.workshop_name}
                   </td>
                   <td className="text-center pt-5 font-thin text-xl">
                     {rupiahCurrency(item.price)}
@@ -73,7 +74,7 @@ export function CartComponent() {
       <div className="bg-green-800 w-full h-28 mt-10 flex justify-end items-center pr-20">
         <label className="text-2xl text-white">Total</label>
         <label className="ml-16 text-xl bg-white pt-3 pb-3 pl-3 pr-3">
-          {rupiahCurrency(dummyData.totalPayment)}
+          {rupiahCurrency(total)}
         </label>
       </div>
       <div className="w-full h-28 flex justify-end items-center pr-20">
