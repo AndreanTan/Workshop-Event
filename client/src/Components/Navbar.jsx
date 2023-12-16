@@ -32,7 +32,7 @@ function NavigationBar() {
       <NavbarContent className="flex justify-between">
         <NavbarBrand>
           <div className="font-Grotesk text-4xl text-[#902B1E] font-bold">
-            Jelajah
+            <a href="/">Jelajah</a>
           </div>
         </NavbarBrand>
       </NavbarContent>

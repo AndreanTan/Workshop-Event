@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { rupiahCurrency } from "../../Utils/utils";
 import Footer from "../../Components/Footer";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,10 +9,13 @@ export default function CartComponent() {
   const items = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [listItem, setListItem] = useState([]);
   const [total, setTotal] = useState(0);
   const [currentQty, setCurrentQty] = useState(0);
+
+  const idAccess = localStorage.getItem("idAccess");
 
   useEffect(() => {
     initApi();
@@ -34,7 +37,7 @@ export default function CartComponent() {
   }, [items]);
 
   const initApi = () => {
-    dispatch(getListItem({ userId: 1 }));
+    dispatch(getListItem({ userId: idAccess }));
   };
 
   const addQty = (cartId, quantity) => {
@@ -180,7 +183,7 @@ export default function CartComponent() {
                 <span>Total cost</span>
                 <span>{rupiahCurrency(total)}</span>
               </div>
-              <button className="bg-[#697B51] font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-md">
+              <button className="bg-[#697B51] font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-md" onClick={() => navigate('/checkout', items)} >
                 Checkout
               </button>
             </div>
