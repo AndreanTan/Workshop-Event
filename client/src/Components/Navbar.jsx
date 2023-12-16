@@ -31,9 +31,11 @@ function NavigationBar() {
     >
       <NavbarContent className="flex justify-between">
         <NavbarBrand>
-          <div className="font-Grotesk text-4xl text-[#902B1E] font-bold">
-            Jelajah
-          </div>
+          <Link to={"/"}>
+            <div className="font-Grotesk text-4xl text-[#902B1E] font-bold">
+              Jelajah
+            </div>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="flex gap-4 w-full" justify="center">
