@@ -9,12 +9,12 @@ function getTotal(listItem) {
   return result;
 }
 
-function setOrderDetail(listItem, orderId, quantityOrdered) {
+function setOrderDetail(listItem, orderId) {
   try {
     listItem.map((item) => {
       db.order_detail
         .build({
-          quantity: quantityOrdered,
+          quantity: item.quantity,
           sub_total: item.subTotal,
           workshop_id: item.id,
           order_id: orderId,
@@ -32,7 +32,7 @@ function setOrderDetail(listItem, orderId, quantityOrdered) {
 module.exports = {
   createOrder: async (req, res, next) => {
     try {
-      const { userId, quantityOrdered } = req.body;
+      const { userId } = req.body;
       const listItem = await cartRepository.getListItemByIdUser(
         req.body.userId
       );
@@ -45,7 +45,6 @@ module.exports = {
       const orderDetail = setOrderDetail(
         listItem,
         orderId,
-        quantityOrdered
       );
       res.status(201).send({
         isError: false,

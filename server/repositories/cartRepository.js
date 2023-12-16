@@ -14,7 +14,8 @@ async function getListItemByIdUser(userId) {
         workshop.ratings,
         carts.quantity,
         lang.languange,
-        workshop.price * carts.quantity as subTotal
+        workshop.price * carts.quantity as subTotal,
+        carts.id as cartId
     FROM
         carts
             LEFT JOIN
@@ -29,6 +30,17 @@ async function getListItemByIdUser(userId) {
   return items;
 }
 
+async function updateQuantityCart(qty, userId) {
+  const query = await db.sequelize.query(
+    `
+    UPDATE carts SET quantity = ${qty} WHERE id = ${userId}
+    `,
+    { type: QueryTypes.UPDATE }
+  );
+  return query;
+}
+
 module.exports = {
   getListItemByIdUser,
+  updateQuantityCart,
 };
