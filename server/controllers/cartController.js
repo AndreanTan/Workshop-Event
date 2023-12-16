@@ -28,12 +28,21 @@ module.exports = {
 
   insertItem: async (req, res, next) => {
     try {
-      const newItem = db.cart.build({ ...req.body }).save();
-      res.status(201).send({
-        isError: false,
-        message: "item success added!",
-        data: newItem,
+      const { workshop_id, quantity, user_id } = req.body;
+      const items = await db.cart.findAll({
+        where: { workshop_id: workshop_id },
       });
+
+      if (items.length <= 0) {
+        const newItem = db.cart.build({ ...req.body }).save();
+        respHandler(res, `item success added!`, newItem, 201, false);
+      } else {
+        const updateItem = await cartRepository.updateQuantityCart(
+          quantity,
+          items[0].id
+        );
+        respHandler(res, `item success updated!`, updateItem, 201, false);
+      }
     } catch (error) {
       next(error);
     }

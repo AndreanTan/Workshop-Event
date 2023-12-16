@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   deleteItem,
   getListItem,
+  insertItemService,
   updateQtyItem,
 } from "../../../services/cartService";
 
@@ -57,6 +58,22 @@ export const cartSlice = createSlice({
     builder.addCase(updateQtyItem.rejected, (state, action) => {
       state.loading = false;
       state.status = "updateItem";
+      state.error = action.error;
+    });
+
+    
+    builder.addCase(insertItemService.pending, (state, action) => {
+      state.status = "insertItem";
+      state.loading = true;
+    });
+    builder.addCase(insertItemService.fulfilled, (state, action) => {
+      state.status = "insertItem";
+      state.loading = false;
+      state.message = action.payload;
+    });
+    builder.addCase(insertItemService.rejected, (state, action) => {
+      state.loading = false;
+      state.status = "insertItem";
       state.error = action.error;
     });
   },
