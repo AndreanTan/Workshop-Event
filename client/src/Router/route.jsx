@@ -9,9 +9,14 @@ import DescriptionWorkshop from "../Pages/DescriptionWorkshop";
 import AuthLogin from "../Pages/Auth/AuthLogin";
 import AuthRegist from "../Pages/Auth/AuthRegist";
 import Checkout from "../Pages/Checkout";
+<<<<<<< HEAD
 
 
 import AuthVerif from "../Pages/Auth/AuthVerif";
+=======
+import AuthVerif from "../Pages/Auth/AuthVerif";
+
+>>>>>>> 74efff33c0e9d13c3fbb22df596bca595db374bd
 
 const route = [
   <Route key={"/"} path="/" element={<HomeComponent />} />,
@@ -19,8 +24,8 @@ const route = [
   <Route key={"/cart"} path="/cart" element={<CartComponent />} />,
   <Route key={"/card"} path="/card" element={<WorkshopCard />} />,
   <Route
-    key={"/descworkshop"}
-    path="/descworkshop"
+    key={"/descworkshop/:id"}
+    path="/descworkshop/:id"
     element={<DescriptionWorkshop />}
   />,
   <Route key={"/login"} path="/login" element={<AuthLogin />} />,

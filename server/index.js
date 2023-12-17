@@ -6,12 +6,27 @@ const port = 4000;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("public"));
 
-const { userRouter, cartRouter, orderRouter, payMethodRouter, paymentRouter } = require("./routers");
+const {
+  userRouter,
+  cartRouter,
+  orderRouter,
+  payMethodRouter,
+  paymentRouter,
+  workshopRouter,
+} = require("./routers");
 // app.get("/", (req, res) => {
 //   res.status(201).send("<h1>Welcome to my api!</h1>");
 // });
-app.use("/api", [userRouter, cartRouter, orderRouter, payMethodRouter, paymentRouter]);
+app.use("/api", [
+  userRouter,
+  cartRouter,
+  orderRouter,
+  payMethodRouter,
+  paymentRouter,
+  workshopRouter,
+]);
 
 app.use((err, req, res, next) => {
   const statusCode = err.status || 500;
