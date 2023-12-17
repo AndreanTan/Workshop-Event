@@ -1,7 +1,6 @@
 const { Sequelize } = require("sequelize");
 const db = require("../models");
 const workshop_category = require("../models/workshop_category");
-const { query } = require("express");
 
 module.exports = {
   fetchAllWorkshop: async (query) => {
@@ -54,6 +53,24 @@ module.exports = {
       return {
         isError: false,
         message: "get data success!",
+        data: getData,
+      };
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  },
+  getNewWorkshop: async () => {
+    try {
+      const getData = await db.workshop.findAll({
+        order: [["createdAt", "desc"]],
+        limit: 3,
+        include: {
+          model: db.workshop_category,
+        },
+      });
+      return {
+        message: "success",
         data: getData,
       };
     } catch (error) {

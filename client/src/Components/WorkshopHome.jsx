@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import WorkshopCard from "./WorkshopCard";
+import axios from "axios";
 
 function WorkshopHome() {
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const getData = await axios.get(
+        "http://localhost:4000/api/getNewWorkshop"
+      );
+      console.log(getData.data);
+      setData(getData.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <section className="w-full h-[709px] max-w-screen-xl mx-auto p-4 md:py-8">
       <div className="flex flex-col justify-center items-center">
@@ -13,6 +32,13 @@ function WorkshopHome() {
           {/* <WorkshopCard />
                 <WorkshopCard />
                 <WorkshopCard /> */}
+          {data.map((item, index) => {
+            return (
+              <Link key={index} to={`/descworkshop/${item.id}`}>
+                <WorkshopCard data={item} />
+              </Link>
+            );
+          })}
         </div>
       </div>
       <div className="mt-10 flex justify-center">
