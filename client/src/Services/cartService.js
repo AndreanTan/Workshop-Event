@@ -20,4 +20,14 @@ export const updateQtyItem = createAsyncThunk("updateQtyItem", async (body) => {
     ...body,
   });
   return result.data;
-})
+});
+
+export const insertItemService = createAsyncThunk(
+  "insertItemService",
+  async (body) => {
+    const result = await axios.post("http://localhost:4000/api/cart", {
+      ...body,
+    });
+    return result.data;
+  }
+);

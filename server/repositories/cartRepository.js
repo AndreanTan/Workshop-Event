@@ -10,12 +10,13 @@ async function getListItemByIdUser(userId) {
         workshop.address,
         workshop.price,
         workshop.workshop_duration,
-        workshop.description,
+        workshop.description_1,
         workshop.ratings,
         carts.quantity,
         lang.languange,
         workshop.price * carts.quantity as subTotal,
-        carts.id as cartId
+        carts.id as cartId,
+        workshop.workshop_image as image
     FROM
         carts
             LEFT JOIN
