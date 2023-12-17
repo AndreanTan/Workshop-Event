@@ -3,7 +3,11 @@ import { rupiahCurrency } from "../../Utils/utils";
 import Footer from "../../Components/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { deleteItem, getListItem, updateQtyItem } from "../../services/cartService";
+import {
+  deleteItem,
+  getListItem,
+  updateQtyItem,
+} from "../../services/cartService";
 
 export default function CartComponent() {
   const items = useSelector((state) => state.cart);
@@ -106,8 +110,8 @@ export default function CartComponent() {
                     <div className="w-20">
                       <img
                         className="h-24"
-                        src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z"
-                        alt=""
+                        src={`http://localhost:4000/${item.image.substring(7)}`}
+                        alt={item.workshop_name}
                       />
                     </div>
                     <div className="flex flex-col justify-between ml-4 flex-grow">
@@ -183,7 +187,10 @@ export default function CartComponent() {
                 <span>Total cost</span>
                 <span>{rupiahCurrency(total)}</span>
               </div>
-              <button className="bg-[#697B51] font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-md" onClick={() => navigate('/checkout', items)} >
+              <button
+                className="bg-[#697B51] font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-md"
+                onClick={() => navigate("/checkout")}
+              >
                 Checkout
               </button>
             </div>

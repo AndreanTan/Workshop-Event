@@ -86,7 +86,7 @@ const RegistForm = () => {
             className="text-lg font-bold font-Grotesk"
             //   placeholder="Enter your email"
           />
-          {formik.touched.usermame && formik.errors.username ? (
+          {formik.touched.username && formik.errors.username ? (
             <div className="text-red-600 first-letter:capitalize">
               {formik.errors.username}
             </div>

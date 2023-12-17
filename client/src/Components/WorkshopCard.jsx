@@ -1,5 +1,4 @@
 import React from "react";
-import Img1 from "../assets/img/W1.jpeg";
 import { rupiahCurrency } from "../Utils/utils";
 
 function WorkshopCard({ data }) {
@@ -17,11 +16,13 @@ function WorkshopCard({ data }) {
         </h1>
         {/* <h2 className="mt-[1px] text-[18px] font-normal text-white">{data.workshop_name}</h2> */}
       </div>
-      <div className="mt-[10px] px-3 flex flex-row justify-between">
+      <div className="mt-[10px] px-3">
         <h2 className=" text-[18px] font-normal  text-white">
           {rupiahCurrency(data.price)}
         </h2>
-        <h2 className=" text-[18px] font-normal text-white">{data.address}</h2>
+        <h2 className=" text-[18px] mt-1 mb-1 font-normal text-white">
+          {data.address}
+        </h2>
       </div>
     </div>
   );
