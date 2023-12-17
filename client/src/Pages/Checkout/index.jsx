@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import C1 from "../../assets/img/C1.png";
+import C1 from "../../assets/img/C1.webp";
 import Footer from "../../Components/Footer";
 import { IoHome } from "react-icons/io5";
 import { GrFormNext } from "react-icons/gr";
@@ -35,16 +35,16 @@ export default function Checkout() {
     }
 
     if (orders.result?.message === "order succes") {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: `${orders.result?.message}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `${orders.result?.message}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     }
   }, [items, orders]);
 
