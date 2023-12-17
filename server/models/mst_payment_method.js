@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ order }) {
-      this.belongsToMany(order, { through: "payment" });
+    static associate({ payment }) {
+      this.hasMany(payment, { foreignKey: "mst_payment_method_id" });
     }
   }
   mst_payment_method.init(
