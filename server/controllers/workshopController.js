@@ -4,6 +4,7 @@ const {
   fetchAllWorkshop,
   getCategory,
   getById,
+  getNewWorkshop,
 } = require("../repositories/workshopRepository");
 
 module.exports = {
@@ -38,6 +39,20 @@ module.exports = {
   getWorkshopById: async (req, res, next) => {
     try {
       const result = await getById(req.query);
+      respHandler(
+        res,
+        result.message,
+        result.data ? result.data : null,
+        null,
+        result.isError
+      );
+    } catch (error) {
+      next(error);
+    }
+  },
+  getNewestWorkshop: async (req, res, next) => {
+    try {
+      const result = await getNewWorkshop(req.query);
       respHandler(
         res,
         result.message,
