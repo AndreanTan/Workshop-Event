@@ -17,7 +17,7 @@ module.exports = {
             "Learn the art of pottery and create your own unique pieces.",
           description_2: "Suitable for beginners and intermediate levels.",
           category_type: 1,
-          workshop_image: "public/Pottery.jpg",
+          workshop_image: "public/Pottery.webp",
           ratings: null,
         },
         {
@@ -31,7 +31,7 @@ module.exports = {
           description_2:
             "Bring your creativity to life with beautiful accessories.",
           category_type: 1,
-          workshop_image: "public/Jewelry Crafting.jpg",
+          workshop_image: "public/Jewelry Crafting.webp",
           ratings: null,
         },
         {
@@ -45,7 +45,7 @@ module.exports = {
           description_2:
             "Create your own batik masterpiece with skilled instructors.",
           category_type: 1,
-          workshop_image: "public/Batik Art.jpg",
+          workshop_image: "public/Batik Art.webp",
           ratings: null,
         },
         {
@@ -59,7 +59,7 @@ module.exports = {
           description_2:
             "Learn carving techniques and create intricate wooden designs.",
           category_type: 1,
-          workshop_image: "public/Wood Carving.jpg",
+          workshop_image: "public/Wood Carving.webp",
           ratings: null,
         },
         {
@@ -74,7 +74,7 @@ module.exports = {
           description_2:
             "Craft beautiful textiles with guidance from experienced weavers.",
           category_type: 1,
-          workshop_image: "public/Traditional Textile Weaving.jpg",
+          workshop_image: "public/Traditional Textile Weaving.webp",
           ratings: null,
         },
         {
@@ -88,7 +88,7 @@ module.exports = {
             "Master the art of making authentic Italian pasta from scratch.",
           description_2: "Enjoy a hands-on experience with expert chefs.",
           category_type: 2,
-          workshop_image: "public/Italian Pasta Making.jpg",
+          workshop_image: "public/Italian Pasta Making.webp",
           ratings: null,
         },
         {
@@ -101,7 +101,7 @@ module.exports = {
           description_1: "Learn the secrets of crafting delicious sushi rolls.",
           description_2: "Get creative with various sushi-making techniques.",
           category_type: 2,
-          workshop_image: "public/Sushi Masterclass.jpg",
+          workshop_image: "public/Sushi Masterclass.webp",
           ratings: null,
         },
         {
@@ -116,7 +116,7 @@ module.exports = {
           description_2:
             "Create delightful pastries and desserts with expert guidance.",
           category_type: 2,
-          workshop_image: "public/Baking Artistry.jpg",
+          workshop_image: "public/Baking Artistry.webp",
           ratings: null,
         },
         {
@@ -130,7 +130,7 @@ module.exports = {
           description_2:
             "Explore various barbecue techniques and flavor profiles.",
           category_type: 2,
-          workshop_image: "public/Barbecue Mastery.jpg",
+          workshop_image: "public/Barbecue Mastery.webp",
           ratings: null,
         },
         {
@@ -145,7 +145,7 @@ module.exports = {
           description_2:
             "Learn to prepare authentic Thai dishes with experienced chefs.",
           category_type: 2,
-          workshop_image: "public/Thai Cooking Adventure.jpg",
+          workshop_image: "public/Thai Cooking Adventure.webp",
           ratings: null,
         },
       ],

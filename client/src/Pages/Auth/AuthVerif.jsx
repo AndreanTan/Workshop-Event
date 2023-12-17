@@ -19,7 +19,7 @@ const AuthVerif = () => {
           </div>
         </div>
         <div className="md:flex items-center hidden">
-          <img src="../image-login.jpg" alt="" draggable="false" />
+          <img src="../image-login.webp" alt="" draggable="false" />
         </div>
       </div>
     </div>

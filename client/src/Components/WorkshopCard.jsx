@@ -1,5 +1,4 @@
 import React from "react";
-import Img1 from "../assets/img/W1.jpeg";
 import { rupiahCurrency } from "../Utils/utils";
 
 function WorkshopCard({ data }) {
